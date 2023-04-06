@@ -1,0 +1,1292 @@
+body{
+    margin: 0;
+    background-color: #fff;
+/*    font-family: 'Raleway', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+/* Стили верхней полоски */
+.header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+    width: 100%;
+    height: 60px;
+    position: fixed;	
+    top: 0;
+    left: 0;
+    z-index: 6;
+	/*background-color: rgba(40, 41, 51, 0.9);*/
+    background-color: #535c69;
+}
+
+.svg-header {
+	height: 3.2%;
+    display: flex;
+    position: fixed;
+    left: 75px;
+    top: 14px;
+	cursor: pointer;
+}
+
+.svg-logo {
+/*	width: 100px;*/
+	
+	display: flex;
+/*	margin-right: 80px;*/
+	max-width: 100px;
+	position: fixed;
+	left: 140px;
+	top: 10px;
+
+	z-index: 7;
+}
+
+
+/* Стили для выезжающего меню слева */
+#left_sidebar, #right_sidebar,#centr_sidebar {
+	position: fixed;
+	width: 300px;
+    height: 100%;
+    height: -webkit-calc(100% - 60px);
+    height: -moz-calc(100% - 60px);
+    height: calc(100% - 60px);
+	margin-top: 60px;
+	padding-bottom: 20px;
+	/*background: #fff;*/
+    background-color: #202a33;
+	z-index: 7;
+	/* Скорость "выезда" меню слева по нажатию кнопки бургер меню */
+	-moz-transition: all 300ms;
+	-webkit-transition: all 300ms;
+	transition: all 300ms;
+
+}
+
+#left_sidebar {
+	left: -500px;
+	overflow-y: hidden;
+    
+}
+
+#right_sidebar {
+	right: -500px;
+	overflow-y: hidden;
+	/*	положение ползунка слева*/
+	direction: rtl;
+}
+
+#centr_sidebar {
+	top: -2000px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    visibility: hidden;
+    width: 25%;
+}
+
+#left_sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+#right_sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#left_sidebar::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+}
+#right_sidebar::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+}
+
+#left_sidebar::-webkit-scrollbar-track {
+    background-color: #fcfcfc;
+}
+#right_sidebar::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+
+
+#right_sidebar:hover::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+}
+
+#right_sidebar:hover::-webkit-scrollbar-track {
+    background-color: #fcfcfc;
+}
+
+/* Стили элементов списка выезжающего меню */
+#left_sidebar ul, #right_sidebar ul {
+    padding: 0;
+}
+/*DropDown меню выбора свойств у контейнера*/
+ul li:hover ul.Sklad1{
+    
+}
+ul li:hover ul.Sklad1, ul li:active ul.Sklad1{
+  display: block;
+}
+
+ul li ul.Sklad1{
+    display: none;
+}
+
+.parentLi{
+    font-size: 10px;
+    font: inherit;
+    color: #fff;
+    cursor: pointer;
+}
+.iconHistoryMotorRepair{
+    width: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+#left_sidebar ul li, #right_sidebar ul li {
+    margin-left: 10px;
+	margin-top: 10px;
+	list-style: none;
+    opacity: 0.75;
+    transition: opacity 0.2s linear;
+}
+
+#left_sidebar ul li a, #right_sidebar ul li a {
+    margin-left: 10px;
+	margin-top: 10px;
+    color: #000000;
+	font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: opacity 0.2s linear;
+    
+         font-size: 10px;
+    font: inherit;
+    color: #fff;
+}
+
+#left_sidebar ul li a:hover {
+    opacity: 1;    
+}
+
+#right_sidebar ul li a:hover {
+    opacity: 1;    
+}
+
+/* Стили кнопки бургер меню */
+#left_sidebar .toggle-btn {
+	position: fixed;
+	left: 25px;
+	top: 20px;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;	
+	opacity: 0.75;
+    transition: opacity 0.2s linear;
+	z-index: 11;
+}
+
+#left_sidebar .toggle-btn:hover {
+	opacity: 1;
+}
+
+#left_sidebar .toggle-btn span{
+	display: block;
+	width: 20px;
+	height: 2px;
+	
+	background: #fff;
+	
+	font-size: 0;
+	color: transparent;
+	z-index: 20;
+	position: absolute;
+}
+
+#left_sidebar .toggle-btn span:before,
+#left_sidebar .toggle-btn span:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	
+	background: #fff;
+	
+	position: absolute;
+	left: 0;
+	z-index: 20;
+}
+
+#left_sidebar .toggle-btn span:before {
+	top: -6.5px;
+}
+
+#left_sidebar .toggle-btn span:after {
+	bottom: -6.5px;
+}
+
+#right_sidebar .ava {
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+		
+	position: fixed;
+	right: 25px;
+	top: 12.5px;
+	cursor: pointer;
+	display: flex;
+	z-index: 11;
+}
+
+/* Пока меню активно показывать поле, по нажатию которого меню уедет */
+.interface__overlay {
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
+	background-color: rgba(0, 0, 0, 0);
+	-moz-transition: all 500ms;
+	-webkit-transition: all 500ms;
+	transition: all 500ms;
+}
+
+
+/* Класс со свойствами выезжающего меню слева, работает со скриптом "выезда" */
+#interface.move_left_sidebar #left_sidebar {
+	left: 0px;
+}
+
+#interface.move_right_sidebar #right_sidebar{
+	right: 0px;
+}
+
+#interface.move_centr_sidebar #centr_sidebar{
+    top: 100px;
+    right: 0;
+    left: 0;
+    width: 25%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    visibility: visible;
+}
+
+#interface.move_left_sidebar .interface__overlay {
+	visibility: visible;
+	background-color:  rgba(0, 0, 0, 0.5);
+}
+
+#interface.move_right_sidebar .interface__overlay {
+	visibility: visible;
+	background-color:  rgba(0, 0, 0, 0.5);
+}
+
+#interface.move_centr_sidebar .interface__overlay {
+	visibility: visible;
+	background-color:  rgba(0, 0, 0, 0.5);
+}
+
+#interface.show_overlay .interface__overlay {
+	visibility: visible;
+	z-index: 3;
+	background-color:  rgba(0, 0, 0, 0.5);
+}
+
+#interface.move_left_sidebar, #interface.move_right_sidebar, #interface.move_centr_sidebar {
+	overflow: hidden;	
+}
+
+/*контейнер в боковых менюшках*/
+.container {
+	display: flex;
+	flex-direction: column;
+/*	align-items: center;*/
+	justify-content: space-between;
+/*  	height: 180px;*/
+	padding: 0px 20px 0px 10px;
+	direction: ltr;
+}
+/*контейнер в панельке по центру*/
+.containerReg {
+	flex-direction: column;
+/*	align-items: center;*/
+	justify-content: space-between;
+	padding: 10px 20%;
+}
+
+.ask-log-pass {
+	font-size: 14px;
+	text-align: justify;
+	margin: 20px 0px 20px 0px;
+    color: white;
+}
+
+.auth {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  	/*height: 70px;*/	
+}
+
+.auth .errorText {
+	padding-top: 20px;
+}
+
+input, input:hover, input:focus {
+	outline-color: #d8d8d8;
+	background: #f5f5f5;
+}
+
+.knopka {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+    -webkit-user-select:none; /* убирать выделение текста */
+  background: rgb(155, 155, 155); /* фон кнопки */
+  padding: 6px; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+  border: none;
+    width: 100%;
+} 
+.knopka:hover { background: #FF9B66 } /* при наведении курсора мышки */
+.knopka:active { background: #F25900 } /* при нажатии */
+
+/*Удаляет стрелочки в поля для набора текста*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control {
+	background: #d8d8d8;
+	padding: 14px;
+	padding-left: 20px;
+	border: 0px !important;
+	height: 20px;
+}
+
+.exit {
+    font: inherit;
+    color: #fff;
+	font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+	padding-bottom: 10px;
+}
+
+.text {
+	margin-left: 50px;
+	font-size: 10px;
+}
+
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute; /* Под вопросом*/
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+/*	margin-bottom: 0;*/
+	padding-top: 85px;	
+	background-color: #e6e6e6;
+    
+    overflow: hidden;
+    
+    margin: 0 0 0px 0px;
+    width: 100%;
+}
+
+
+/*--- Стили на странице Profile ---*/
+
+#profile {
+	background-color: white;
+	width: 400px;
+}
+
+.profile_img {
+	max-width: 200px;
+	max-height: 200px;
+	display: block;
+	margin: 30px auto;
+	border: 1px solid #c6c6c6;
+}
+
+.menu_img, .menu_pass, .menu_notification {
+	background-color: #dddddd;
+	border-bottom: 1px solid #c6c6c6;
+}
+
+#profile_form_pass {
+	text-align: center;
+}
+
+.prof_pass_style {
+	background: #d8d8d8;
+	padding: 14px;
+	padding-left: 20px;
+	border: 0px !important;
+	height: 20px;
+	margin: 5px auto;
+}
+
+#profile_form_pass .knopka {
+	margin: 0 135px;
+}
+
+
+.txtInline {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px;
+    cursor: pointer;
+}
+
+.btnInline {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 10px 100px 20px 100px;
+}
+
+#profile_form_img, #profile_form_pass, #profile_notification {
+	padding: 0;
+}
+
+#profile_form_pass, .errorText {
+	padding-bottom: 20px;
+}
+
+#profile_form_img, #profile_form_pass, #profile_notification {
+	display: none;
+}
+#profile.change_img #profile_form_img {
+	display: block;
+}
+#profile.change_pass #profile_form_pass {
+	display: block;
+}
+#profile.change_notific #profile_notification {
+	display: block;
+}
+
+
+#profile.change_img .menu_img {
+	background-color: #c6c6c6;
+}
+#profile.change_pass .menu_pass {
+	background-color: #c6c6c6;
+}
+#profile.change_notific .menu_notification {
+	background-color: #c6c6c6;
+}
+
+.input_image {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.preview {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.preview p{
+	margin: 10px;
+}
+
+.preview ol {    
+	padding: 0;
+	margin: 0;
+	margin-top: 10px;
+}
+
+.preview ol li {    
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.preview ol li p {    
+	margin: 10px;    
+}
+
+.prev_image {
+	max-width: 200px;
+	max-height: 200px;
+	margin: auto;
+}
+
+#btn_change_img, #btn_change_pass, #repeat_pass {
+	display: none;
+}
+
+#btn_change_img.show {
+	display: block;
+}
+
+.myCheckBox{
+    cursor: pointer;
+}
+
+
+
+/*===================== SKLAD =============================*/
+/*Контент-блок окна обзора материалов*/
+.WareHouse{
+    display: flex;
+    flex-direction: row;
+	flex-grow: 1;
+	width: inherit;
+}
+.Exam{
+    display: flex;
+    flex-direction: row;
+	flex-grow: 1;
+	width: inherit;
+}
+.Motor{
+    display: flex;
+    flex-direction: row;
+	flex-grow: 1;
+	width: inherit;
+}
+
+/*Разделение контент-блока на два столбца*/
+.WH_left_column, .WH_right_column {
+	display: flex;
+	flex-direction: column;
+}
+
+.WH_left_column {
+	width: 430px;
+	margin-left: 25px;
+}
+
+.WH_right_column {
+	width: 100%;
+	flex-grow: 1;
+	margin: 0 25px;
+}
+
+.WH_right_column.column_hide {
+	display: none;
+}
+
+/* Цвет плиток и их тени */
+.bar, .material_nav_btn {
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+	-ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+	-o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Цвет плиток и их тени */
+.material_img, .material_nav_btn:hover {
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+	-ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+	-o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.material_main_panel, .bar {
+	margin-bottom: 25px;
+}
+
+/*Плитка плиткой картинки и навигационной панели*/
+.material_main_panel {
+	display: flex;
+	flex-direction: column-reverse;
+	height: auto;	
+}
+
+/*Плитка с картинкой материала*/
+.material_img {
+	display: flex;
+	flex-direction: column;
+  	align-items: center;	
+  	justify-content: center;
+	height: 300px;
+}
+
+.material_navigation {
+	display: flex;
+	flex-direction: row;
+	height: 30px;
+	width: 100%;
+}
+
+.svg-navigation {
+	max-height: 20px;
+	height: 100%;
+}
+
+.material_navigation input {
+	display: none;
+}
+
+.material_nav_btn {
+	display: flex;
+	width: 100%;
+	height: 28px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(198, 198, 198, 0.76);
+}
+
+.material_nav_btn.openTab {
+	height: 30px;
+	background-color: #ffffff;
+}
+
+.material_nav_btn.closeTab {
+	height: 28px;
+	background-color: #e8e8e8;
+	animation: closeTab 200ms cubic-bezier(0.06, 0.4, 0.71, 0.63) 1 forwards;
+}
+
+.material_nav_btn.closeTab:hover{
+	animation: openTab 200ms cubic-bezier(0.06, 0.4, 0.71, 0.63) 1 forwards;
+	background-color: #ffffff;
+}
+
+@keyframes openTab {
+	from {
+		height: 28px;
+		-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+  	to {    
+		height: 30px;
+		-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  	}
+}	 
+
+@keyframes closeTab {
+	from {
+		
+		height: 30px;
+		-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+  	to { 
+		height: 28px;
+		-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);	
+  	}
+}
+
+.tableMats label .svg-navigation path, .material_nav_btn.closeTab .svg-navigation path {
+	animation: svg-closeTab 200ms cubic-bezier(0.06, 0.4, 0.71, 0.63) 1 forwards;
+	fill: #282933;
+	opacity: 0.3;
+}
+
+.tableMats label:hover .svg-navigation path {
+	animation: svg-openTab 200ms cubic-bezier(0.06, 0.4, 0.71, 0.63) 1 forwards;
+	fill: #282933;
+	opacity: 1;
+}
+
+@keyframes svg-openTab {
+	from {
+		fill: #282933;
+		opacity: 0.3;
+	}
+  	to {    
+		fill: #282933;
+		opacity: 1;
+  	}
+} 
+
+@keyframes svg-closeTab {
+	from {
+		fill: #282933;
+		opacity: 1;
+	}
+  	to {    
+		fill: #282933;
+		opacity: 0.3;
+  	}
+}
+
+#material_name {
+	margin-bottom: 10px;
+	font-weight: 700;
+	text-align: center;
+}
+
+/*Свойство картинок пропорционального заполнения плитки с картинкой*/
+.material_img img {
+	max-width: 70%;
+	max-height: 70%;
+	margin: auto;
+}
+
+/*Плитки с подробной информацией и спецификацией*/
+.bar {
+	display: block;
+	height: 100%;
+	/*overflow: hidden;*/
+	padding: 10px 15px 15px 15px;
+  	transition: all 200ms cubic-bezier(.35, .09, .91, .69);
+}
+
+.hidden {
+	display: none;
+}
+
+.slide {
+	overflow: hidden;
+	padding: 0 auto;
+	height: 0;	
+}
+
+.barHeader {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 5px;
+}
+
+.barHeader .svg-navigation {
+	height: 18px;
+	opacity: 50%;
+}
+
+.barTitle {
+	margin-left: 5px;
+	color: #525252;
+	font-weight: 700;
+}
+
+.barClose {
+	margin: auto 0 auto auto;
+	opacity: 50%;
+	cursor: pointer;
+}
+
+.barClose:hover {
+	opacity: 1;
+}
+
+.barClose .svg-navigation {
+	height: 12px;
+}
+
+.barContent {
+	height: calc(100% - 9px);
+}
+
+/*Таблица материалов*/
+.tableMats {
+    height: 99%;
+	width: 100%;
+	overflow: auto;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+/*Ширина столбцов таблицы и drop-down менюшек*/
+.columnOZM {
+	width: 120px;
+}
+.columnName {
+	width: 400px;
+}
+.columnQty {
+	width: 150px;
+}
+.columnEdIzm {
+	width: 100px;
+}
+.colSod {
+	width: 200px;
+}
+.colFio {
+	width: 300px;
+}
+.columnCategory {
+	width: 140px;
+}
+.columnCategoryCat {
+	width: 200px;
+}
+.columnDate {
+	width: 200px;
+}
+.tableMats thead th:last-child {
+	margin-right: 8px;
+}
+
+/*Ширина столбцов таблицы и drop-down менюшек*/
+.columnFN{
+    width: 150px;
+}
+.columnLN{
+    width: 150px;
+}
+.columnSN{
+    width: 150px;
+}
+.columnDateExam{
+    width: 100px;
+}
+.columnExamType{
+    width: 200px;
+}
+.columnPercent{
+    width: 100px;
+}
+.columnTimeExam{
+    width: 170px;
+}
+.columnTabNum{
+    width: 100px;
+}
+.columnInvNum{
+    width: 100px;
+}
+.columnPower{
+    width: 100px;
+}
+.columnSpeed{
+    width: 100px;
+}
+.columnTypeMotor{
+    width: 250px;
+}
+.columnPlaceAgr{
+    width: 400px;
+}
+.columnAggr{
+    width: 200px;
+}
+.columnStatusRepair{
+    width: 200px;
+}
+
+
+.columnDateRepairH{
+    width: 100px;
+}
+.columnTypeRepairH{
+    width: 200px;
+}
+.columnCauseH{
+    width: 300px;
+}
+.columnFactH{
+    width: 200px;
+}
+.columnPlaceCehH{
+    width: 100px;
+}
+
+/*Отступ блока внутри ячейки хидера для смещения по отношению к дроп-даун менюшки*/
+.columnHeader {
+	padding: 0 10px;
+}
+
+.tableMats tbody td {
+	padding: 3px 0 3px 10px;
+}
+
+.columnOZM.value, .columnDate.value {
+	padding-left: 30px;
+}
+
+.columnQty.value {
+	display: flex;
+	padding-left: 70px;
+	text-align:right;
+}
+
+/*Свойства шапки таблицы*/
+.tableMats thead tr {
+    background-color: #f7f7f7;
+    color: #525252;
+  	display: block;
+  	position: relative;
+	height: 25px;
+	display: flex;
+  	align-items: center;
+}
+
+.tableMats thead th, .tableMats tbody td {
+	
+	display: flex;
+	flex-direction: row;
+}
+
+.tableMats thead tr, .tableMats tbody tr {
+	display: flex;
+	justify-content: space-between;
+}
+
+.tableMats tbody {
+  	display: block;
+  	overflow-y: auto;
+  	width: 100%;
+  	height: inherit;
+}
+
+#material_table_head .columnCategory {
+	padding: 0;
+}
+
+#material_table_head label {
+	margin-left: 5px;
+}
+
+/* Поиск по ОЗМ */
+
+#lname {
+	display: none;
+	position: absolute;
+	top: 2px;
+	left: 48px;
+	width: 110px;
+  	border: 1px solid #eee;
+}
+
+#lname::-webkit-outer-spin-button,
+#lname::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* Drop-down менюшки */
+.tableMats input {
+  display: none;
+}
+
+.filtr {
+  	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+
+.items {
+  	display: none;
+  	position: absolute;
+	top: 25px;
+  	overflow-y: auto;
+  	cursor: pointer;
+	background-color: #ffffff;
+  	max-height: 0;
+	animation: fadeOut 300ms cubic-bezier(0.46, 0.01, 0.65, 0.67) 1 forwards; 
+}
+
+@keyframes fadeOut {
+	from {max-height: 0;}
+	to 	 {max-height: 115px;}
+}
+
+.filtr.selected .items {
+	display: block;
+	z-index: 4;
+	min-width: 150px;
+	max-width: 200px;
+	max-height: 115px;
+}
+
+.items div {
+  	padding: 3px 0 3px 10px;
+  	background: white;
+}
+
+.items div:hover {
+  background: #eee;
+  cursor: pointer;
+}
+/* drop-down менюшки*/
+
+#lname, #resetSort, .columnOZM #searchOZM {
+	z-index: 2;
+}
+
+#select2:checked ~ #lname, #resetSort, .columnOZM #searchOZM {
+	z-index: 4;
+}
+#select2:checked ~ #lname {
+  display: block;
+}
+
+
+/*Скролл таблицы*/
+.tableMats tbody::-webkit-scrollbar, #material_table_head .items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tableMats tbody::-webkit-scrollbar-thumb, #material_table_head .items::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+}
+
+.tableMats tbody::-webkit-scrollbar-track, #material_table_head .items::-webkit-scrollbar-track {
+    background-color: #fcfcfc;
+}
+
+.tableMats tbody:hover, #material_table_head .items:hover {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	-ms-overflow-scrolling: touch;
+	-o-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+}
+
+.tableMats tbody:hover::-webkit-scrollbar-thumb, #material_table_head .items:hover::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+	-webkit-appearance: none;
+	width: 8px;
+}
+
+.tableMats tbody:hover::-webkit-scrollbar-track, #material_table_head .items:hover::-webkit-scrollbar-track{
+    background-color: #fcfcfc;
+}
+
+.tableMats .itemMatTR:hover, .tableMats .minItemMatTR:hover, .tableMats .zeroItemMatTR:hover, .tableMats .green:hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+.tableMatsObj .itemMatTR:hover, .tableMatsObj:hover,{
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+/*Скролл таблицы*/
+
+
+.tableMats tr{
+    background-color: #ffffff;	
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.tableMats thead tr{
+	box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.2);    
+}
+
+.tableMats .minItemMatTR{
+    background-color: #ffffaa;
+}
+.tableMats .zeroItemMatTR{
+    background-color: #fdd2d2;
+}
+.tableMats .green{
+    background-color: #D2FFD2;
+}
+
+.tableMats .selected{
+    background-color: silver;
+    color: black;
+    border-color: coral;
+}
+.tableMatsObj .selected{
+    background-color: silver;
+    color: black;
+    border-color: coral;
+}
+
+.tableMats .statusRezerv{
+    background-color: rgb(107, 196, 86);
+    color: white;
+}
+.tableMats .statusRepair{
+    background-color: rgb(196, 86, 86);
+    color: white;
+}
+.tableMats .statusInstall{
+    background-color: rgb(196, 196, 86);
+    color: white;
+}
+.tableMats .statusUtil{
+    color: lightgray;
+    font-style: italic;
+}
+
+.tableMatsObj tr{
+    background-color: darkgrey;
+    color: black;
+    border-bottom: 0px;
+}
+
+
+/*График*/
+#myChart{
+    width: 100% !important;
+    max-height: 270px;
+    min-height: 120px;
+/*	padding: 0 17px 10px 17px;*/
+   /* height: 270px;*/
+}
+.unvisibleElement{
+display: none;
+
+}
+
+.WordDoc{
+    width: 210mm;
+    height: 297mm;
+}
+
+
+.rack {
+    margin: 0;
+    padding: 0;
+}
+
+.rack li {
+    display: inline-block;
+    height: 100%;
+    border: 1px solid #000;
+    FONT-SIZE: 7px;
+    text-align: center;
+}
+
+
+/*СЛАЙДШОУ*/
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 700px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
